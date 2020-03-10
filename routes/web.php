@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -76,4 +76,4 @@ Route::post('/comment', [
     'as' => 'comment',
     'uses' => 'CommentController@new'
 ]);
-
+Route::post('register', 'Auth\RegisterController@register');
