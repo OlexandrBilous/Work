@@ -77,3 +77,4 @@ Route::post('/comment', [
     'uses' => 'CommentController@new'
 ]);
 Route::post('register', 'Auth\RegisterController@register');
+Route::post('login', 'Auth\LoginController@login');

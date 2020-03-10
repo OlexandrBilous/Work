@@ -89,7 +89,7 @@
 </div>
 
 <footer class="text-center">
-    <p>Мой первый блог<br>Copyright &copy; 2020</p>
+    <p>MyProject<br>Copyright &copy; 2020</p>
 </footer>
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
