@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 
 //Route::get('/about', 'AboutController@about');
 Route::get('/', 'ArticleController@showArticle')->name('index');
+Route::get('/api', 'ApiController@index');
 Route::get('/about', [
     'as'=>'aboutone',
     'uses'=>'ArticleController@about'
