@@ -24,10 +24,12 @@ class StoreBlogPost extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|max:1000|min:5',
-            'content' => 'required|max:10000|min:10',
-            'postdate' => 'required|date',
-            'category_id' => 'required|exists:categories,id',
-        ];
+            'bank' => 'required|max:100|min:3',
+            'credit_type' => 'required|max:100|min:3',
+            'period' => 'required|digits_between:1,2',
+            'Month_pay' => 'required|digits_between:1,10',
+            'Body_pay' => 'required|digits_between: 1,10',
+            'percent' => 'required|digits_between:1,3',
+            ];
     }
 }

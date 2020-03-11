@@ -11,71 +11,27 @@ use Illuminate\Http\Request;
 |
 */
 
-//Route::get('/about', 'AboutController@about');
-Route::get('/', 'ArticleController@showArticle')->name('index');
-Route::get('/api', 'ApiController@index');
-Route::get('/about', [
-    'as'=>'aboutone',
-    'uses'=>'ArticleController@about'
-]);
-Route::get('/articleOne/{article}' , [
-    'as' => 'articleOne',
-    'uses'=>'Articlecontroller@articleOne'
-]);
-Route::post('/addarticle', [
-    'as'=>'addArticle',
-    'uses'=>'ArticleController@addArticle'
+Route::get('/', 'BankController@show')->name('index');
+Route::post('/saveTarif', [
+    'as'=>'saveTarif',
+    'uses'=>'BankController@saveTarif'
 ]);
 
-Route::get('/addtext', [
-    'as'=>'addtext',
-    'uses'=>'ArticleController@addtext'
+Route::get('/addTarif', [
+    'as'=>'addTarif',
+    'uses'=>'BankController@addTarif'
 ]);
+Route::get('/showTarif/' , [
+    'as' => 'showTarif',
+    'uses'=>'BankController@showTarif'
+]);
+//Route::get('/filtredTarif', [
+//    'as'=>'filtredTarif',
+//    'uses'=>'BankController@filtredTarif'
+//]);
+//Route::get('/filtrationOfTarif/{banks}', [
+//    'as'=>'filtrationOfTarif',
+//    'uses'=>'BankController@filtrationOfTarif'
+//])->name('filtrationOfTarif');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/article-change/{article}' , [
-    'as' => 'article-change',
-    'uses'=>'Articlecontroller@articleChange'
-]);
-Route::post('/article-save/{article}' , [
-    'as' => 'article-save',
-    'uses'=>'Articlecontroller@articleSave'
-]);
-Route::get('/article-delete/{article}' , [
-    'as' => 'article-delete',
-    'uses'=>'Articlecontroller@articleDelete'
-]);
-Route::get('/article-menu' , [
-    'as' => 'article-menu',
-    'uses'=>'Articlecontroller@showMyArticle'
-]);
-Route::get('/addCategoriesView', [
-    'as'=>'addCategoriesView',
-    'uses'=>'CategoriesController@addCategoriesView'
-]);
-Route::post('/addCategoriesForm', [
-    'as'=>'addCategoriesForm',
-    'uses'=>'CategoriesController@addCategoriesForm'
-]);
-Route::post('/categories-save/{categories}' , [
-    'as' => 'categories-save',
-    'uses'=>'CategoriesController@categoriesSave'
-]);
-Route::get('/showCategories/{category}', [
-    'as' => 'showCategories',
-    'uses' => 'ArticleController@category'
-]);
-Route::post('/comment', [
-    'as' => 'comment',
-    'uses' => 'CommentController@new'
-]);
-// отправка нового комментария
-Route::post('/comment', [
-    'as' => 'comment',
-    'uses' => 'CommentController@new'
-]);
-Route::post('register', 'Auth\RegisterController@register');
-Route::post('login', 'Auth\LoginController@login');
+Route::get('/filterTraif', 'BankController@filtrationOfTarif')->name('filterTraif');

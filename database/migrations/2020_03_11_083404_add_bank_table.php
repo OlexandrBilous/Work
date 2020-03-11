@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateArticlesTable extends Migration
+class AddBankTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,15 @@ class CreateArticlesTable extends Migration
      */
     public function up()
     {
-        Schema::create('articles', function (Blueprint $table) {
+        Schema::create('banks', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->text('content');
-            $table->string('title');
-            $table->timestamp('postdate');
+            $table->string('bank');
+            $table->string('credit_type');
+            $table->string('period');
+            $table->string('Month_pay');
+            $table->string('Body_pay');
+            $table->string('percent');
         });
     }
 
@@ -29,6 +32,6 @@ class CreateArticlesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('articles');
+        Schema::dropIfExists('banks');
     }
 }
