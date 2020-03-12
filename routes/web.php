@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/', 'BankController@show')->name('index');
+//Route::get('/', 'BankController@show')->name('index');
 Route::post('/saveTarif', [
     'as'=>'saveTarif',
     'uses'=>'BankController@saveTarif'
@@ -21,17 +21,11 @@ Route::get('/addTarif', [
     'as'=>'addTarif',
     'uses'=>'BankController@addTarif'
 ]);
-Route::get('/showTarif/' , [
+Route::get('/' , [
     'as' => 'showTarif',
     'uses'=>'BankController@showTarif'
 ]);
-//Route::get('/filtredTarif', [
-//    'as'=>'filtredTarif',
-//    'uses'=>'BankController@filtredTarif'
-//]);
-//Route::get('/filtrationOfTarif/{banks}', [
-//    'as'=>'filtrationOfTarif',
-//    'uses'=>'BankController@filtrationOfTarif'
-//])->name('filtrationOfTarif');
+
 
 Route::get('/filterTraif', 'BankController@filtrationOfTarif')->name('filterTraif');
+
