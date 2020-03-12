@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use App\Models\Bank;
 use App\Http\Requests\StoreBlogPost;
+use App\Models\Categories;
 use Illuminate\Http\Request;
 
 class BankController extends Controller
@@ -24,89 +26,38 @@ class BankController extends Controller
     public function showTarif(Bank $banks)
     {
         $banks = Bank::all();
-        return view('welcome', [
+        return view('showTarif', [
             'bank' => $banks,
         ]);
     }
+//    public function filtredTarif()
+//    {
+//        return view('filtredTarif');
+//    }
+
+//    public function store(Request $request)
+//    {
+//        $period = $request->input('Period');
+//
+//        //
+//    }
+
 
     public function filtrationOfTarif(Request $request)
     {
-        $rule= $request->input('select');
-        switch ($rule) {
-            case 1:
-                $period =(int) $request->input('test');
-                $banks = Bank::query();
-                if ($period != null) {
-                    $banks->where('period', '<=', $period);
-                    return view('welcome',
-                        [
-                            'bank' => $banks->get(),
-                            'period' => $period
-                        ]);
-                }
-                break;
-            case 2:
-                $period =(int) $request->input('test');
-                $banks = Bank::query();
-                if ($period != null) {
-                    $banks->where('percent', '=', $period);
-                    return view('welcome',
-                        [
-                            'bank' => $banks->get(),
-                            'period' => $period
-                        ]);
-                }
-                break;
-            case 3:
-                $period =(int) $request->input('test');
-                $banks = Bank::query();
-                if ($period != null) {
-                    $banks->where('Month_pay', '=', $period);
-                    return view('welcome',
-                        [
-                            'bank' => $banks->get(),
-                            'period' => $period
-                        ]);
-                }
-                break;
-            case 4:
-                $period =(int) $request->input('test');
-                $banks = Bank::query();
-                if ($period != null) {
-                    $banks->where('Body_pay', '=', $period);
-                    return view('welcome',
-                        [
-                            'bank' => $banks->get(),
-                            'period' => $period
-                        ]);
-                }
-                break;
-            case 5:
-                $period = $request->input('test');
-                $banks = Bank::query();
-                if ($period != null) {
-                    $banks->where('bank', '=', $period);
-                    return view('welcome',
-                        [
-                            'bank' => $banks->get(),
-                            'period' => $period
-                        ]);
-                }
-                break;
-            case 6:
-                $period = $request->input('test');
-                $banks = Bank::query();
-                if ($period != null) {
-                    $banks->where('credit_type', '=', $period);
-                    return view('welcome',
-                        [
-                            'bank' => $banks->get(),
-                            'period' => $period
-                        ]);
-                }
-                break;
-        }
 
+        $period =(int) $request->input('test');
+        $banks = Bank::query();
+        if ($period != null) {
+            $banks->where('period', '<=', $period);
+        }
+        return view('showTarif',
+            [
+                'bank' => $banks->get(),
+                'period' => $period
+            ]);
     }
+
+//add
 
 }
